@@ -1,3 +1,5 @@
+Previously part of https://github.com/metaplex-foundation/metaplex
+
 ## Creating generative art
 
 1. Create a `traits` folder and create a list of directories for the traits (i.e. background, shirt, sunglasses). Look at the `example-traits` for guidance
