@@ -25,7 +25,7 @@ function makeCreateImageWithCanvas(order, width, height) {
       const optimizedImage = await imagemin.buffer(buffer, {
         plugins: [
           imageminPngquant({
-            quality: [0.6, 0.95],
+            quality: [1, 1],
           }),
         ],
       });
