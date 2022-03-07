@@ -9,7 +9,6 @@ Previously part of https://github.com/metaplex-foundation/metaplex
 
 ```
 
-metaplex generate_art_configurations <directory>
 ts-node cli generate_art_configurations <directory>
 
 ```
