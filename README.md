@@ -100,7 +100,6 @@ The following file will be generated (based off of `example-traits`):
 4. After you have adjusted the configurations to your heart's content, you can run the following command to generate the JSON files along with the images.
 
 ```
-metaplex create_generative_art -c <configuration_file_location> -n <number_of_images>
 ts-node cli create_generative_art -c <configuration_file_location> -n <number_of_images>
 ```
 
