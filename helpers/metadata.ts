@@ -46,7 +46,25 @@ export async function createMetadataFiles(
     numberOfFilesCreated += 1;
   }
 
-  while (numberOfFilesCreated < parseInt(numberOfImages, 10)) {
+  // The number of unique sets is limited by the number of
+  // combinations of the traits in the breakdown. Cap the number of
+  // images at that total so we don't loop forever when more images
+  // are requested than unique combinations that exist.
+  const totalUniqueSets = Object.values(breakdown).reduce(
+    (total: number, traits: any) => total * Object.keys(traits).length,
+    1,
+  );
+  const requestedImages = parseInt(numberOfImages, 10);
+  const maxImages = Math.min(requestedImages, totalUniqueSets);
+
+  if (maxImages < requestedImages) {
+    log.warn(
+      `Only ${totalUniqueSets} unique trait combinations exist. ` +
+        `Generating ${maxImages} images instead of ${requestedImages}.`,
+    );
+  }
+
+  while (numberOfFilesCreated < maxImages) {
     const randomizedSet = generateRandomSet(breakdown, dnp);
 
     if (!_.some(randomizedSets, randomizedSet)) {
